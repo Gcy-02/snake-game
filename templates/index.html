@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇排行榜</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐍 贪吃蛇游戏</h1>
+            <p>和朋友一起挑战最高分！</p>
+        </header>
+
+        <div class="main-content">
+            <div class="play-button">
+                <a href="/game">🎮 开始游戏</a>
+            </div>
+
+            <div class="leaderboard">
+                <h2>🏆 排行榜 TOP 10</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>排名</th>
+                                <th>玩家</th>
+                                <th>分数</th>
+                                <th>日期</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if scores %}
+                                {% for i, score in enumerate(scores, 1) %}
+                                    <tr>
+                                        <td class="rank">
+                                            {% if i == 1 %}🥇{% elif i == 2 %}🥈{% elif i == 3 %}🥉{% else %}{{ i }}{% endif %}
+                                        </td>
+                                        <td>{{ score[1] }}</td>
+                                        <td class="score">{{ score[2] }}</td>
+                                        <td>{{ score[3] }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="4" class="empty">暂无记录，快来挑战吧！</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>使用方向键控制蛇的移动 | 按 Q 退出游戏 | 按 C 重新开始</p>
+        </footer>
+    </div>
+</body>
+</html>

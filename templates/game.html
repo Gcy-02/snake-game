@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>🐍 贪吃蛇游戏</h1>
+            <a href="/" class="home-link">🏠 返回主页</a>
+        </header>
+
+        <div class="game-info">
+            <div class="score-display">得分：<span id="score">0</span></div>
+            <div class="high-score">最高分：<span id="high-score">0</span></div>
+        </div>
+
+        <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+        <div class="controls">
+            <p>使用方向键 ↑↓←→ 控制蛇的移动</p>
+            <p>游戏结束后按 C 重新开始，按 Q 退出</p>
+        </div>
+
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <h2>游戏结束！</h2>
+                <p>你的得分：<span id="finalScore">0</span></p>
+                <div class="name-input">
+                    <label for="playerName">输入你的名字：</label>
+                    <input type="text" id="playerName" placeholder="匿名玩家" maxlength="20">
+                </div>
+                <button id="saveBtn">保存分数</button>
+                <div class="button-group">
+                    <button id="restartBtn">重新开始</button>
+                    <button id="quitBtn">退出游戏</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>

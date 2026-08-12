@@ -1,0 +1,14 @@
+# IDE
+.idea/
+.vscode/
+
+# 运行时产物
+scores.db
+debug.log
+*.log
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
