@@ -32,10 +32,10 @@
                         </thead>
                         <tbody>
                             {% if scores %}
-                                {% for i, score in enumerate(scores, 1) %}
+                                {% for score in scores %}
                                     <tr>
                                         <td class="rank">
-                                            {% if i == 1 %}🥇{% elif i == 2 %}🥈{% elif i == 3 %}🥉{% else %}{{ i }}{% endif %}
+                                            {% if loop.index == 1 %}🥇{% elif loop.index == 2 %}🥈{% elif loop.index == 3 %}🥉{% else %}{{ loop.index }}{% endif %}
                                         </td>
                                         <td>{{ score[1] }}</td>
                                         <td class="score">{{ score[2] }}</td>

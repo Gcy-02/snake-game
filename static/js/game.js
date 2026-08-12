@@ -15,7 +15,7 @@ let gameLoopId;
 let snake = [];
 let snakeLength = 1;
 let food = { x: 0, y: 0 };
-let dx = 0;
+let dx = BLOCK_SIZE;
 let dy = 0;
 let score = 0;
 let highScore = 0;
@@ -26,7 +26,7 @@ function initGame() {
     snakeLength = 1;
     score = 0;
     gameOver = false;
-    dx = 0;
+    dx = BLOCK_SIZE;
     dy = 0;
     
     scoreElement.textContent = score;
